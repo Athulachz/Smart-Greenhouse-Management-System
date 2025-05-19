@@ -1,0 +1,9 @@
+Set up the environment (install Python and any dependencies).
+
+Write or adapt the code to simulate sensor data or interface with real hardware.
+
+Test the system in simulation, then with actual hardware (if applicable).
+
+Refine the system (add logging, web interfaces, advanced features).
+
+Deploy the system in the target environment.
