@@ -1,0 +1,32 @@
+import random
+from datetime import datetime
+
+# Simulated sensor reading functions
+def read_temperature():
+    return round(random.uniform(20.0, 35.0), 2)  # Celsius
+
+def read_humidity():
+    return round(random.uniform(40.0, 80.0), 2)  # Percent
+
+def read_soil_moisture():
+    return round(random.uniform(200, 800), 2)  # ADC value (simulated)
+
+# Automated irrigation decision
+def should_irrigate(soil_moisture):
+    threshold = 400  # Below this, soil is considered dry
+    return soil_moisture < threshold
+
+# Logging data
+def log_data(temp, humidity, soil, irrigate):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    status = "ON" if irrigate else "OFF"
+    return f"{timestamp} | Temp: {temp}°C | Humidity: {humidity}% | Soil Moisture: {soil} | Irrigation: {status}"
+
+# Main execution
+for _ in range(5):  # Loop 5 times
+    temp = read_temperature()
+    humidity = read_humidity()
+    soil = read_soil_moisture()
+    irrigate = should_irrigate(soil)
+    log = log_data(temp, humidity, soil, irrigate)
+    print(log)
